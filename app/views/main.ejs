@@ -11,24 +11,23 @@
 	<link rel="stylesheet" href="/styles/nouislider.min.css">
 	<link rel="stylesheet" href="/styles/style.css">
 
-
 </head>
 
 <body>
 	<nav class="navbar navbar-fixed-top navbar-default">
 		<div class="container">
-			<a class="navbar-brand" href="/">A r-Zip</a>
+			<a class="navbar-brand" href="/"><h1>A r-Zip</h1></a>
 		</div>
 	</nav>
 
 	<div class="container">
 
-		<form id="filter-search" action="list" method="get">
+		<form id="filter-search">
 			
 		    <div class="form-group row">
 		      <label for="region" class="col-3 col-form-label">지역</label>
 		      <div class="col-9">
-		          <select class="custom-select" id="metro-line">
+		          <select class="custom-select" id="metro-line" name="line">
 				    <option selected>몇 호선</option>
 				    <option value="1">1호선</option>
 				    <option value="2">2호선</option>
@@ -38,7 +37,7 @@
 				    <option value="6">6호선</option>
 				    <option value="7">7호선</option>
 				  </select>
-		          <select class="custom-select" id="metro-station">
+		          <select class="custom-select" id="metro-station" name="station">
 				    <option selected>무슨 역?</option>
 				    <option value="1">안암역</option>
 				    <option value="2">고대역</option>
@@ -53,74 +52,47 @@
 		    <div class="form-group row">
 				<label for="region" class="col-3 col-form-label">가격</label>
 				<div class="col-9">
-						<div class="btn-group" data-toggle="buttons">
-							<label class="btn btn-primary active">
-								<input type="radio" name="paymentType1" id="option1" checked> 전세
-							</label>
-							<label class="btn btn-primary">
-								<input type="radio" name="paymentType2" id="option2"> 월세
-							</label>
-						</div>
+						<div class="list-group segmented-control">
+			                <a href="#" class="list-group-item active">전세<input type="radio" checked name="payment" value="1"/>
+			                </a>
+			                <a href="#" class="list-group-item">월세<input type="radio" name="payment" value="2"/>
+			                </a>
+		                </div>
 						<br>
 						<br>
 						<br>
-						<div id="sliderPrice" class="slider"></div>
+						
+						 <div id="sliderPrice" class="slider"></div>
+
+
+						
 		    	</div>
 	    	</div>
-
+						<br>
+						<br>
 		    <div class="form-group row">
 				<label for="region" class="col-3 col-form-label">면적</label>
 				<div class="col-9 slider-wrapper">
-						<br>
 					<div id="sliderArea" class="slider"></div>
 		    	</div>
 	    	</div>
-
-			
-			<input type="submit" value="Search">
+			<div class="col-md-12 text-center"> 
+				<input class="btn btn-default" id="submitButton" type="submit" value="검색">
+			</div>
 		</form>
 
 	</div>
 
-	<div class="list-container"></div>
+	<div id="list-container" class="container"></div>
 
 </body>
 
-<script type="text/javascript" src="/scripts/nouislider.min.js"></script>
-<script type="text/javascript">
-	
-var sliderPrice = document.getElementById('sliderPrice');
-
-noUiSlider.create(sliderPrice, {
-    start: [20, 80],
-    connect: true,
-    tooltips: true,
-    range: {
-        'min': 0,
-        'max': 100
-    }
-});
-
-var sliderArea = document.getElementById('sliderArea');
-
-noUiSlider.create(sliderArea, {
-    start: [20, 80],
-    connect: true,
-    tooltips: true,
-    range: {
-        'min': 0,
-        'max': 100
-    }
-});
-
-</script>
-
 <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+<script type="text/javascript" src="/scripts/nouislider.min.js"></script>
+<script type="text/javascript" src="/scripts/script.js"></script>
 
 <script src="https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js"></script>
 <script src="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/js/bootstrap.js" crossorigin="anonymous"></script>
-
-
-<!-- <script type="text/javascript" src="/scripts/load-image.all.min.js"></script> -->
 
 </html>

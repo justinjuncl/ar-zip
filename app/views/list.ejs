@@ -2,11 +2,28 @@
 	<table id="houses-container" class="table">
 		<tbody>
 	    <% houses.forEach( function (house) { %>
-	    	<tr data-href="/house/<%= house._id %>">
-				<img alt="<%= house.inst %>" src="<%= house.image %>"/>
-	        	<td><%= house.desc %></td>
-				<td><%= house.price %></td>
-				</td>
+	    	<tr data-href="/houses/<%= house._id %>">
+				<td><iframe width="150px" height="150px" allowfullscreen="yes" scrolling="no" allowvr="yes" src="../arview/<%= house.image %>"></iframe></td>
+				<!-- <td>가격: <%= house.price %></td> -->
+				
+
+			    <td class="form-group row">
+			      <label for="inputEmail3" class="col-sm-4 col-form-label"><h3>설명</h3></label>
+			      <div class="col-sm-8">
+			        <%= house.desc %>
+			      </div>
+			      <label for="inputEmail3" class="col-sm-4 col-form-label"><h3>가격</h3></label>
+			      <div class="col-sm-8">
+			        <%= house.price %>
+			      </div>
+			      <label for="inputEmail3" class="col-sm-4 col-form-label"><h3>위치</h3></label>
+			      <div class="col-sm-8">
+			        <%= house.location %>
+			      </div>
+			    </td>
+
+
+
 	        </tr>
 	    <% }); %>
 	    </tbody>

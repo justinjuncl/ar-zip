@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>AR Viewer</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link rel="stylesheet" href="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/css/bootstrap.css" crossorigin="anonymous">
+
+
+    <link rel="stylesheet" href="/styles/style.css">
+    <script src="https://rawgit.com/aframevr/aframe/5b8183c/dist/aframe-master.min.js"></script>
+
+   	<style>
+		a-scene {
+			width: 500px;
+			height: 500px;
+			margin: 0 auto;
+			max-width: 100%;
+		}
+		iframe {
+			display: block;
+		}
+   	</style>
+  </head>
+  <body>
+
+
+	<nav class="navbar navbar-fixed-top navbar-default">
+		<div class="container">
+			<a class="navbar-brand" href="/"><h1>A r-Zip</h1></a>
+		</div>
+	</nav>
+
+	<div class="container">
+		
+		<div class="ar-containter">
+			<a-scene embedded>
+		      <a-sky src="../images/<%= house.image %>" rotation="0 0 0"></a-sky>
+		    </a-scene>
+		</div>
+
+		<div class="form-group row container">
+			
+			<div class="col-7 col-form-label">
+			    <label for="desc"><h2>설명</h2></label>
+			    <textarea class="form-control" id="desc" name="desc" rows="4" value="<%= house.desc %>"></textarea>
+			    <br>
+			    <label for="location"><h2>위치</h2></label>
+			    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12646.406464777514!2d127.01985443670362!3d37.58799768019823!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357cbca4b48f396d%3A0xdd97ca0f44054515!2sAnamdong+5(o)-ga%2C+Seongbuk-gu%2C+Seoul!5e0!3m2!1sen!2skr!4v1501971532585" width="100%" height="500px" frameborder="0" style="border:0" allowfullscreen name="location"></iframe>
+			</div>
+
+		  <div class="col-5 col-form-label">
+			  <div class="form-group">
+			  <label for="desc"><h5>가격</h5></label>
+  			    <textarea class="form-control" id="aaa" name="price" rows="1" placeholder="<%= house.price %>" readonly></textarea>
+			    <!-- <input class="form-control" id="price" value="<%= house.price %>" readonly> -->
+			  </div>
+			  <div class="form-group">
+			  <label for="desc"><h5>넓이</h5></label>
+			    <input class="form-control" id="area" value="<%= house.area %>" readonly>
+			  </div>
+			  <div class="form-group">
+			  <label for="desc"><h5>추가 정보</h5></label>
+			    <input class="form-control" id="extra" value="<%= house.extra %>" readonly>
+			  </div>
+			  <div class="form-group">
+			  <label for="desc"><h5>연락처</h5></label>
+			    <textarea class="form-control" id="aaa" name="phone" rows="3" placeholder="<%= house.phone %>" readonly></textarea>
+			    <!-- <input class="form-control" id="phone" value="<%= house.phone %>" readonly> -->
+			  </div>
+		  </div>
+
+		</div>
+	</div>
+
+  </body>
+
+<script src="https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js"></script>
+<script src="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/js/bootstrap.js" crossorigin="anonymous"></script>
+
+
+
+</html>

@@ -25,7 +25,7 @@ module.exports = function (app) {
 		res.render('main.ejs');
 	});
 
-	app.get('/list', houses.findAll );
+	app.post('/list', houses.findAll );
 
 	app.get('/edit/:id', houses.editHouseByID );
 
@@ -37,44 +37,40 @@ module.exports = function (app) {
 
 	app.get('/houses/:id', houses.findHouseByID );
 
-	app.get('/images/:id', function(req, res) {
+	app.get('/images/:image', function(req, res) {
 
-		var fileStream = fs.createReadStream('images/'+req.params.id+'.jpg');
+		var fileStream = fs.createReadStream('images/'+req.params.image+'.jpg');
 		fileStream.pipe(res);
 
+	});
+
+	app.get('/arview/:image', function(req, res) {
+
+		res.render('arview.ejs', {
+			image: req.params.image
+		});
 
 	})
 
-	app.get('/arview/:id', function(req, res) {
-
-		var house = {image: req.params.id}
-
-		res.render('arview.ejs', {
-				house: house
-			});
-
+	app.get('/lots', function(req, res) {
+		res.render('view.ejs');
 	})
 
 	app.post('/form', upload.any(), function(req, res) {
 
 		 res.send(req.files);
+
+		 console.log(req)
  
-/*req.files has the information regarding the file you are uploading...
-from the total information, i am just using the path and the imageName to store in the mongo collection(table)
-*/
- var path = req.files[0].path;
- var imageName = req.files[0].originalname;
- 
- var imagepath = {};
- imagepath['path'] = path;
- imagepath['originalname'] = imageName;
+		 var path = req.files[0].path;
+		 var imageName = req.files[0].originalname;
+		 
+		 var imagepath = {};
+		 imagepath['path'] = path;
+		 imagepath['originalname'] = imageName;
 
  		console.log(imagepath)
 
 	});
-
-	app.get('/images/:id', function(req, res) {
-		res.send(id)
-	})
 
 }

@@ -12,7 +12,8 @@ var HouseSchema = new mongoose.Schema({
 	desc	: String,
 	location: String,
 	metro	: String,
-	paymentType: String,
+	payment : String,
+	extra	: String
 }, { collection: 'houses' });
 
 mongoose.model('House', HouseSchema);
