@@ -16,7 +16,7 @@ module.exports = {
 
 	},
 
-	findByID: function (req, res) {
+	findHouseByID: function (req, res) {
 
 		House.findById(req.params.id, function (err, house) {
 			res.render('house', {
@@ -27,7 +27,7 @@ module.exports = {
 
 	},
 
-	editByID: function (req, res) {
+	editHouseByID: function (req, res) {
 
 		House.findById(req.params.id, function (err, house) {
 			res.render('form', {
@@ -38,7 +38,7 @@ module.exports = {
 
 	},
 
-	create: function (req, res) {
+	createHouse: function (req, res) {
 
 		if ( req.body._id ) {
 			var data = {
@@ -83,7 +83,7 @@ module.exports = {
 
 	},
 
-	deleteByID: function (req, res) {
+	deleteHouseByID: function (req, res) {
 		House.findByIdAndRemove(req.params.id, function (err, house) {
 			res.send({redirect: "/"});
 		});
