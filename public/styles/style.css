@@ -1,0 +1,7 @@
+.slider {
+	margin: 10px 0;
+}
+
+.btn-group > .btn.active {
+	z-index: 0;
+}

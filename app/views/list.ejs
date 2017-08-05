@@ -1,0 +1,14 @@
+<div class="table-responsive">
+	<table id="houses-container" class="table">
+		<tbody>
+	    <% houses.forEach( function (house) { %>
+	    	<tr data-href="/house/<%= house._id %>">
+				<img alt="<%= house.inst %>" src="<%= house.image %>"/>
+	        	<td><%= house.desc %></td>
+				<td><%= house.price %></td>
+				</td>
+	        </tr>
+	    <% }); %>
+	    </tbody>
+	</table>
+</div>
