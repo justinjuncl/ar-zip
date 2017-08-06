@@ -6,9 +6,9 @@ module.exports = {
 	findAll: function (req, res) {
 
 		var houses = [
-			{image: "pano1", desc: "아트리움", price: "1000/40", _id: "pano1", location: "안암역"},
-			{image: "pano2", desc: "피아노 방", price: "1000/35", _id: "pano2", location: "안암역"},
-			{image: "pano3", desc: "pano3", price: "1000/40", _id: "pano3", location: "안암역"},
+			{image: "pano1", desc: "멀티미디어 방", price: "1000/40", _id: "pano1", location: "안암역"},
+			{image: "pano2", desc: "피아노 방", price: "2000/35", _id: "pano2", location: "안암역"},
+			{image: "pano3", desc: "아트리움", price: "3000/80", _id: "pano3", location: "안암역"},
 		];
 
 		res.render('list', {
@@ -24,8 +24,9 @@ module.exports = {
 
 	findHouseByID: function (req, res) {
 
-		var house1 = {image: "pano1", desc: "아트리움", price: "1000/40", _id: "pano1", location: "안암역", area: "240m²", extra: "자판기", phone: "010-1234-5678"};
-		var house2 = {image: "pano2", desc: "피아노 방", price: "1000/35", _id: "pano2", location: "안암역", area: "200m²", extra: "피아노", phone: "010-1234-5678"};
+		var house1 = {image: "pano1", desc: "멀티미디어 방", price: "1000/40", _id: "pano1", location: "안암역", area: "40m²", extra: "스피커", phone: "010-1234-5678"};
+		var house2 = {image: "pano2", desc: "피아노 방", price: "2000/35", _id: "pano2", location: "안암역", area: "200m²", extra: "피아노", phone: "010-1234-5678"};
+		var house3 = {image: "pano3", desc: "아트리움", price: "3000/80", _id: "pano3", location: "안암역", area: "240m²", extra: "자판기", phone: "010-1234-5678"};
 
 		var house
 
@@ -33,6 +34,8 @@ module.exports = {
 			house = house1
 		} else if (req.params.id == "pano2") {
 			house = house2
+		} else if (req.params.id == "pano3") {
+			house = house3
 		}
 
 		res.render('house', {

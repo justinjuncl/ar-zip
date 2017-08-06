@@ -49,6 +49,16 @@ $('#filter-search').submit(function() {
 
 });
 
+
+
+function submitNew() {
+
+    window.location = "/form";
+
+    return false;
+
+}
+
 $(function(){
     
     $('div.segmented-control a').on('click', function(){
@@ -64,3 +74,4 @@ $(function(){
     });
     
 });
+

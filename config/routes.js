@@ -58,10 +58,6 @@ module.exports = function (app) {
 
 	app.post('/form', upload.any(), function(req, res) {
 
-		 res.send(req.files);
-
-		 console.log(req)
- 
 		 var path = req.files[0].path;
 		 var imageName = req.files[0].originalname;
 		 
@@ -69,7 +65,21 @@ module.exports = function (app) {
 		 imagepath['path'] = path;
 		 imagepath['originalname'] = imageName;
 
- 		console.log(imagepath)
+		 console.log(path, imageName)
+
+		var newHouse = new House({
+			image: image,
+			area: req.body.area,
+			phone: req.body.phone,
+			price: req.body.price,
+			desc: req.body.desc,
+			location: req.body.location,
+			extra: req.body.extra
+		});
+
+		// newHouse.save();
+
+
 
 	});
 
